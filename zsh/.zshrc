@@ -174,7 +174,7 @@ alias reload='source ~/.zshrc'
 alias ls='colorls -1'
 alias la='colorls --almost-all -1'
 alias lt='colorls -A --tree=2'
-alias lgs='colorls --gs'
+alias lgs='colorls -A --gs'
 
 # Safer commands
 alias rm='rm -i'
