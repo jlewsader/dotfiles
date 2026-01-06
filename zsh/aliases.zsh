@@ -32,9 +32,8 @@ alias gh='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
 alias gd='git difftool'
 
 # tmux
-alias ta='tmux attach -t main'
-alias tn='tmux new -s main'
-alias t='tmux'
+alias ta='tmux attach -t '
+alias tn='tmux new -s '
 alias tls='tmux list-sessions'
 alias tk='tmux kill-session -t main'
 
