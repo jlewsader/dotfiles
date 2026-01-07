@@ -52,6 +52,7 @@ alias gds='git difftool --staged'
 
 # tmux
 alias ta='tmux attach -t'
+alias td='tmux detach'
 alias tn='tmux new-session -s'
 alias tl='tmux list-sessions'
 alias tk='tmux kill-session -t'
