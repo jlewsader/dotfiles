@@ -9,15 +9,19 @@ export PATH="$PATH:$HOME/.local/share/gem/ruby/$(ruby -e 'puts RUBY_VERSION.spli
 # ------------------------------
 # Start tmux only for interactive shells
 # AND only when not inside an X session
-if [[ -o interactive ]] && [[ -z "$TMUX" ]] && [[ -z "$DISPLAY" ]]; then
-  SESSION_NAME="main"
+#if [[ -o interactive ]] && [[ -z "$TMUX" ]] && [[ -z "$DISPLAY" ]]; then
+#  SESSION_NAME="main"
+#
+#  if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+#    exec tmux attach -t "$SESSION_NAME"
+#  else
+#    exec tmux new -s "$SESSION_NAME"
+#  fi
+#fi
 
-  if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-    exec tmux attach -t "$SESSION_NAME"
-  else
-    exec tmux new -s "$SESSION_NAME"
-  fi
-fi
+if [[ -n "$SSH_CONNECTION" ]] && [[ -z "$TMUX" ]]; then
+  tmux attach -t main || tmux new -s main
+fi 
 
 # ------------------------------
 # History
