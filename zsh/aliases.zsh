@@ -72,3 +72,21 @@ alias jd='journalctl --no-pager'
 
 # Power (important for iPad-powered Pi)
 alias off='sudo poweroff'
+
+# Windows
+windows() {
+    CONTAINER_NAME="WinApps"
+    # Check if container is running
+    if ! podman ps --format "{{.Names}}" | grep -q "^${CONTAINER_NAME}$"; then
+        echo "Starting ${CONTAINER_NAME} container..."
+        podman start "${CONTAINER_NAME}" || { echo "Failed to start container"; return 1; }
+        # Give container a few seconds to initialize
+        sleep 3
+    fi
+
+    echo "Launching RDP session..."
+    xfreerdp /u:"MyWindowsUser" /p:"MyWindowsPassword" \
+             /v:127.0.0.1 \
+             /cert:tofu \
+             /drive:shared,$HOME
+}

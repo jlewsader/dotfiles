@@ -159,3 +159,4 @@ source $ZSH/oh-my-zsh.sh
 
 # opencode
 export PATH=/home/jlewsader/.opencode/bin:$PATH
+export PATH=/home/jlewsader/.local/bin:$PATH
