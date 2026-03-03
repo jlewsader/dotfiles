@@ -88,5 +88,6 @@ windows() {
     xfreerdp /u:"MyWindowsUser" /p:"MyWindowsPassword" \
              /v:127.0.0.1 \
              /cert:tofu \
-             /drive:shared,$HOME
+             /drive:shared,$HOME \
+             +f
 }
